@@ -1,0 +1,943 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: 救救期末報告
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.4
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - remote_url
+      - local_file
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - remote_url
+        - local_file
+      number_limits: 3
+    opening_statement: 您好！我是專門為成大學生設計的選課諮詢機器人，旨在協助您了解選課時程、規定及課程資訊。我可以回答有關選課流程、抽籤方式、必修課程要求等問題，幫助您順利完成選課作業。如果您有任何疑問，隨時可以問我！
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      configs: []
+      enabled: false
+      type: ''
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: true
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: if-else
+      id: 1730963244000-source-1730963395148-target
+      selected: false
+      source: '1730963244000'
+      sourceHandle: source
+      target: '1730963395148'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: llm
+      id: 1730963395148-false-1730963718583-target
+      selected: false
+      source: '1730963395148'
+      sourceHandle: 'false'
+      target: '1730963718583'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: question-classifier
+      id: start-source-1733739004049-target
+      selected: false
+      source: start
+      sourceHandle: source
+      target: '1733739004049'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: if-else
+      id: 17337393813133-source-17337393813134-target
+      selected: false
+      source: '17337393813133'
+      sourceHandle: source
+      target: '17337393813134'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: llm
+      id: 17337393813134-false-17337393813135-target
+      selected: false
+      source: '17337393813134'
+      sourceHandle: 'false'
+      target: '17337393813135'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: question-classifier
+        targetType: llm
+      id: 1733739004049-1-1730963244000-target
+      source: '1733739004049'
+      sourceHandle: '1'
+      target: '1730963244000'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: question-classifier
+        targetType: llm
+      id: 1733739004049-2-17337393813133-target
+      source: '1733739004049'
+      sourceHandle: '2'
+      target: '17337393813133'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: variable-aggregator
+      id: llm-source-1733842869479-target
+      source: llm
+      sourceHandle: source
+      target: '1733842869479'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: variable-aggregator
+      id: 1730963718583-source-1733842869479-target
+      source: '1730963718583'
+      sourceHandle: source
+      target: '1733842869479'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: variable-aggregator
+        targetType: llm
+      id: 1733842869479-source-1733842890322-target
+      source: '1733842869479'
+      sourceHandle: source
+      target: '1733842890322'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: answer
+      id: 1733842890322-source-1733842903857-target
+      source: '1733842890322'
+      sourceHandle: source
+      target: '1733842903857'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: variable-aggregator
+      id: 17337393813131-source-1733842869479-target
+      source: '17337393813131'
+      sourceHandle: source
+      target: '1733842869479'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: variable-aggregator
+      id: 17337393813135-source-1733842869479-target
+      source: '17337393813135'
+      sourceHandle: source
+      target: '1733842869479'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: knowledge-retrieval
+      id: 1730963395148-true-1733843746036-target
+      source: '1730963395148'
+      sourceHandle: 'true'
+      target: '1733843746036'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: knowledge-retrieval
+        targetType: llm
+      id: 1733843746036-source-llm-target
+      source: '1733843746036'
+      sourceHandle: source
+      target: llm
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: knowledge-retrieval
+      id: 17337393813134-true-1733843773964-target
+      source: '17337393813134'
+      sourceHandle: 'true'
+      target: '1733843773964'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: knowledge-retrieval
+        targetType: llm
+      id: 1733843773964-source-17337393813131-target
+      source: '1733843773964'
+      sourceHandle: source
+      target: '17337393813131'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: START
+        type: start
+        variables: []
+      height: 53
+      id: start
+      position:
+        x: 30
+        y: 305.5
+      positionAbsolute:
+        x: 30
+        y: 305.5
+      selected: false
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1733843746036'
+          - result
+        desc: 問題與知識庫內容相關，利用知識庫的內容回答問題。
+        memory:
+          query_prompt_template: '{{#sys.query#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+        model:
+          completion_params:
+            stop: []
+          mode: chat
+          name: gpt-4o-mini
+          provider: openai
+        prompt_template:
+        - id: 77af917f-d3b4-4b3d-a396-9db82411b462
+          role: user
+          text: 'Use the following context as your learned knowledge, inside <context></context>
+            XML tags.
+
+
+            <context>
+
+            {{#context#}}
+
+            </context>
+
+
+            When answer to user:
+
+            - If you don''t know, just say that you don''t know.
+
+            - If you don''t know when you are not sure, ask for clarification.
+
+            Avoid mentioning that you obtained the information from the context.
+
+            And answer according to the language of the user''s question.
+
+            '
+        selected: false
+        title: LLM 3
+        type: llm
+        vision:
+          configs: null
+          enabled: false
+          variable_selector: null
+      height: 141
+      id: llm
+      position:
+        x: 1547
+        y: 486.5
+      positionAbsolute:
+        x: 1547
+        y: 486.5
+      selected: false
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 用來判斷是否有用到RAG。
+        memory:
+          query_prompt_template: '{{#sys.query#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 50
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o-mini
+          provider: openai
+        prompt_template:
+        - id: 497af01b-9216-4175-b3f3-f8d367f14943
+          role: system
+          text: 'You are an AI assistant tasked with determining whether a given query
+            is related to specific topics
+
+            concerning National Cheng Kung University (NCKU). Your job is to respond
+            with either "True" or
+
+            "False" based on the content of the query.
+
+
+            Here is the query you need to evaluate:
+
+            <query>
+
+            {{#sys.query#}}
+
+            </query>
+
+
+            Evaluate the query and determine if it is related to any of the following
+            topics concerning NCKU:
+
+            - Course registration rules
+
+            - Course information
+
+            - Course content
+
+            - Professors or instructors
+
+            - Names of individuals associated with the university
+
+            - Class locations
+
+            - Class schedules or times
+
+
+            If the query is related to one or more of these topics, respond with "True".
+            If the query is not
+
+            related to any of these topics or is about something else entirely, respond
+            with "False".
+
+
+            Your response should be either "True" or "False" without any additional
+            explanation or content. Do
+
+            not include any other words or punctuation in your response.
+
+
+            <answer>'
+        selected: false
+        title: LLM 1
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 125
+      id: '1730963244000'
+      position:
+        x: 636.5
+        y: 305.5
+      positionAbsolute:
+        x: 636.5
+        y: 305.5
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 622cef32-5a64-4c60-9b97-d079e3982654
+            value: 'True'
+            varType: string
+            variable_selector:
+            - '1730963244000'
+            - text
+          id: 'true'
+          logical_operator: and
+        desc: '如果問題與知識庫相關，則走IF路線。
+
+          否則走ELSE路線。'
+        selected: false
+        title: 條件分支 1
+        type: if-else
+      height: 169
+      id: '1730963395148'
+      position:
+        x: 940.5
+        y: 305.5
+      positionAbsolute:
+        x: 940.5
+        y: 305.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 內容與知識庫內容無關，直接回答問題。
+        memory:
+          query_prompt_template: ''
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 50
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o-mini
+          provider: openai
+        prompt_template:
+        - id: 9ba31069-be51-4e8a-ab11-41fadcadcd2f
+          role: system
+          text: 請用專業的口吻回答使用者的問題，不知道就說不知道，不要亂講話
+        selected: false
+        title: LLM 4
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 141
+      id: '1730963718583'
+      position:
+        x: 1547
+        y: 305.5
+      positionAbsolute:
+        x: 1547
+        y: 305.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        classes:
+        - id: '1'
+          name: 選課**規定**相關問題
+        - id: '2'
+          name: 課程資訊、課程內容相關問題
+        desc: ''
+        instruction: 你是一個回答國立成功大學課程相關疑問的chatbot，你的任務是將使用者的提問整理歸納後，將問題分類成"課程規定相關問題"或是"課程資訊、課程內容相關問題"。
+        instructions: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o-mini
+          provider: openai
+        query_variable_selector:
+        - start
+        - sys.query
+        selected: false
+        title: 問題分類器
+        topics: []
+        type: question-classifier
+        vision:
+          enabled: false
+      height: 175
+      id: '1733739004049'
+      position:
+        x: 333
+        y: 305.5
+      positionAbsolute:
+        x: 333
+        y: 305.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1733843773964'
+          - result
+        desc: 問題與知識庫內容相關，利用知識庫的內容回答問題。
+        memory:
+          query_prompt_template: '{{#sys.query#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+        model:
+          completion_params:
+            stop: []
+          mode: chat
+          name: gpt-4o-mini
+          provider: openai
+        prompt_template:
+        - id: 77af917f-d3b4-4b3d-a396-9db82411b462
+          role: user
+          text: 'Use the following context as your learned knowledge, inside <context></context>
+            XML tags.
+
+
+            <context>
+
+            {{#context#}}
+
+            </context>
+
+
+            When answer to user:
+
+            - If you don''t know, just say that you don''t know.
+
+            - If you don''t know when you are not sure, ask for clarification.
+
+            Avoid mentioning that you obtained the information from the context.
+
+            And answer according to the language of the user''s question.
+
+            '
+        selected: false
+        title: LLM 5
+        type: llm
+        variables: []
+        vision:
+          configs: null
+          enabled: false
+          variable_selector: null
+      height: 141
+      id: '17337393813131'
+      position:
+        x: 1555.6612375229165
+        y: 794.1815968119794
+      positionAbsolute:
+        x: 1555.6612375229165
+        y: 794.1815968119794
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 用來判斷是否有用到RAG。
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o-mini
+          provider: openai
+        prompt_template:
+        - id: 497af01b-9216-4175-b3f3-f8d367f14943
+          role: system
+          text: 'You are an AI assistant tasked with determining whether a given query
+            is related to specific topics
+
+            concerning National Cheng Kung University (NCKU). Your job is to respond
+            with either "True" or
+
+            "False" based on the content of the query.
+
+
+            Here is the query you need to evaluate:
+
+            <query>
+
+            {{#sys.query#}}
+
+            </query>
+
+
+            Evaluate the query and determine if it is related to any of the following
+            topics concerning NCKU:
+
+            - Course registration rules
+
+            - Course information
+
+            - Course content
+
+            - Professors or instructors
+
+            - Names of individuals associated with the university
+
+            - Class locations
+
+            - Class schedules or times
+
+
+            If the query is related to one or more of these topics, respond with "True".
+            If the query is not
+
+            related to any of these topics or is about something else entirely, respond
+            with "False".
+
+
+            Your response should be either "True" or "False" without any additional
+            explanation or content. Do
+
+            not include any other words or punctuation in your response.
+
+
+            <answer>
+
+            '
+        selected: false
+        title: LLM 2
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 125
+      id: '17337393813133'
+      position:
+        x: 636.5
+        y: 656.5
+      positionAbsolute:
+        x: 636.5
+        y: 656.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 8c5e48c9-b3a7-4a1f-97be-ee42a7d688fa
+            value: 'True'
+            varType: string
+            variable_selector:
+            - '17337393813133'
+            - text
+          id: 'true'
+          logical_operator: and
+        desc: '如果問題與知識庫相關，則走IF路線。
+
+          否則走ELSE路線。'
+        selected: false
+        title: 條件分支 2
+        type: if-else
+      height: 169
+      id: '17337393813134'
+      position:
+        x: 940.5
+        y: 656.5
+      positionAbsolute:
+        x: 940.5
+        y: 656.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 內容與知識庫內容無關，直接回答問題。
+        memory:
+          query_prompt_template: ''
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 50
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o-mini
+          provider: openai
+        prompt_template:
+        - id: 9ba31069-be51-4e8a-ab11-41fadcadcd2f
+          role: system
+          text: 請用專業的口吻回答使用者的問題，不知道就說不知道，不要亂講話
+        selected: false
+        title: LLM 6
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 141
+      id: '17337393813135'
+      position:
+        x: 1555.6612375229165
+        y: 645.5
+      positionAbsolute:
+        x: 1555.6612375229165
+        y: 645.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        advanced_settings:
+          group_enabled: true
+          groups:
+          - groupId: 9e5fa042-9c4a-4822-bdc6-176375a66dda
+            group_name: LLM
+            output_type: string
+            variables:
+            - - '1730963718583'
+              - text
+            - - llm
+              - text
+            - - '17337393813131'
+              - text
+            - - '17337393813135'
+              - text
+        desc: ''
+        output_type: string
+        selected: false
+        title: 變量聚合器
+        type: variable-aggregator
+        variables:
+        - - '1730963718583'
+          - text
+        - - llm
+          - text
+        - - '17337393813131'
+          - text
+        - - '17337393813135'
+          - text
+      height: 174
+      id: '1733842869479'
+      position:
+        x: 1953.3828519497333
+        y: 479.44575089955094
+      positionAbsolute:
+        x: 1953.3828519497333
+        y: 479.44575089955094
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1733842869479'
+          - LLM
+          - output
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: ft:gpt-4o-mini-2024-07-18:gdg-on-campus-ncku::AcDl4vvp
+          provider: openai
+        prompt_template:
+        - id: ce7cd23e-82fa-4dd8-b944-060a36cb5ac5
+          role: system
+          text: '你是一位爸比或媽咪，總是用耐心和愛心回答女鵝和鵝子的問題，用繁體中文交流。
+
+
+            '
+        - id: e10c90df-825c-4c22-a706-33e4caf9f235
+          role: user
+          text: '請將以下的內容用可愛的語氣潤飾。務必直接輸出結果。
+
+            """{{#context#}}"""'
+        selected: false
+        title: finetune
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 97
+      id: '1733842890322'
+      position:
+        x: 2153
+        y: 305.5
+      positionAbsolute:
+        x: 2153
+        y: 305.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1733842890322.text#}}'
+        desc: ''
+        selected: false
+        title: 直接回覆 4
+        type: answer
+        variables: []
+      height: 102
+      id: '1733842903857'
+      position:
+        x: 2456
+        y: 305.5
+      positionAbsolute:
+        x: 2456
+        y: 305.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        dataset_ids:
+        - 66b0b48a-8126-43a5-9c28-0cafe73718d7
+        desc: ''
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: weighted_score
+          score_threshold: null
+          top_k: 10
+          weights:
+            keyword_setting:
+              keyword_weight: 0.3
+            vector_setting:
+              embedding_model_name: text-embedding-3-large
+              embedding_provider_name: openai
+              vector_weight: 0.7
+        query_variable_selector:
+        - start
+        - sys.query
+        retrieval_mode: multiple
+        selected: false
+        title: Knowledge Retrieval 1
+        type: knowledge-retrieval
+      height: 91
+      id: '1733843746036'
+      position:
+        x: 1256.2975774311394
+        y: 480.6801342318815
+      positionAbsolute:
+        x: 1256.2975774311394
+        y: 480.6801342318815
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        dataset_ids:
+        - 42b3acf2-7c6d-4ad9-8fc1-adda9078f316
+        desc: ''
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: weighted_score
+          score_threshold: null
+          top_k: 10
+          weights:
+            keyword_setting:
+              keyword_weight: 0.3
+            vector_setting:
+              embedding_model_name: text-embedding-3-large
+              embedding_provider_name: openai
+              vector_weight: 0.7
+        query_variable_selector:
+        - sys
+        - query
+        retrieval_mode: multiple
+        selected: false
+        title: Knowledge Retrieval 2
+        type: knowledge-retrieval
+      height: 91
+      id: '1733843773964'
+      position:
+        x: 1256.2975774311394
+        y: 887.0228655307399
+      positionAbsolute:
+        x: 1256.2975774311394
+        y: 887.0228655307399
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 53.21669676290219
+      y: 51.25417403700352
+      zoom: 0.35000000000000037
